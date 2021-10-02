@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { JogoService } from './jogo.service';
 import { CreateJogoDto } from './dto/create-jogo.dto';
 import { UpdateJogoDto } from './dto/update-jogo.dto';
@@ -28,7 +28,6 @@ export class JogoController {
   }
 
   @Delete(':id')
-  @HttpCode(HttpStatus.NO_CONTENT)
   remove(@Param('id') id: string) {
     return this.jogoService.remove(+id);
   }
