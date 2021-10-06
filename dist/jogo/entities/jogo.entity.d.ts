@@ -1,7 +1,13 @@
-import { Prisma } from ".prisma/client";
+import { Prisma } from "@prisma/client";
 export declare class Jogo implements Prisma.JogoUncheckedCreateInput {
     id?: number;
-    name: string;
-    price?: number;
-    images?: Prisma.ImageUncheckedCreateNestedManyWithoutJogoInput;
+    titulo: string;
+    capa: string;
+    descricao: string;
+    ano: number;
+    linkYtb: string;
+    linkGmp: string;
+    nota?: number;
+    userFav: Prisma.UserJogosCreateNestedManyWithoutJogosInput;
+    genero: Prisma.GenerosCreateNestedManyWithoutJogoInput;
 }

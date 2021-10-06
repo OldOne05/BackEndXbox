@@ -6,10 +6,14 @@ const app_module_1 = require("./app.module");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule, {
         cors: {
-            origin: "http://localhost:3001"
+            origin: ["http://localhost:3001", "http://localhost:3002"]
         }
     });
-    app.useGlobalPipes(new common_1.ValidationPipe());
+    app.useGlobalPipes(new common_1.ValidationPipe({
+        transform: true,
+        whitelist: true,
+        forbidNonWhitelisted: true,
+    }));
     await app.listen(3000);
 }
 bootstrap();

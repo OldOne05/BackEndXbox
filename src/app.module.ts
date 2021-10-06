@@ -7,7 +7,6 @@ import { UserJogosModule } from './user-jogos/user-jogos.module';
 import { GenerosModule } from './generos/generos.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { PerfisModule } from './perfis/perfis.module';
-import { JogoModule } from './jogo/jogo.module';
 
 @Module({
   imports: [JogoModule, UsuariosModule, PerfisModule, GenerosModule, UserJogosModule],
