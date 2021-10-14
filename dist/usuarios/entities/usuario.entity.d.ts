@@ -1,11 +1,10 @@
-import { Prisma } from "@prisma/client";
-export declare class Usuarios implements Prisma.UsuariosUncheckedCreateInput {
+import { Perfil } from "src/Perfis/entities/perfil.entities";
+export declare class Usuarios {
     id?: number;
     nome: string;
     sobrenome?: string;
     email: string;
     senha: string;
     CPF: number;
-    perfis: Prisma.PerfisUncheckedCreateNestedManyWithoutUserInput;
-    jogosFav: Prisma.UserJogosUncheckedCreateNestedManyWithoutUsuariosInput;
+    perfis: Perfil[];
 }

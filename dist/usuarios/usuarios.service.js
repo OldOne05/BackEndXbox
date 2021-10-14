@@ -18,7 +18,9 @@ let UsuariosService = class UsuariosService {
         this._include = {
             perfis: {
                 select: {
-                    titulo: true
+                    id: true,
+                    titulo: true,
+                    imagem: true,
                 }
             }
         };

@@ -10,7 +10,9 @@ export class UsuariosService {
   private readonly _include = {
     perfis: {
       select: {
-        titulo: true
+        id: true,
+        titulo: true,
+        imagem: true,
       }
     }
   }

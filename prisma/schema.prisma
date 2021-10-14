@@ -18,7 +18,6 @@ model Usuarios {
   senha       String
   CPF         Int
   perfis      Perfis[]
-  jogosFav    UserJogos[]
 }
 
 model Perfis {
@@ -27,32 +26,4 @@ model Perfis {
   imagem      String
   user        Usuarios  @relation(fields: [userId], references: [id])
   userId      Int
-}
-
-model Jogo {
-  id          Int       @id @default(autoincrement())
-  titulo      String    @unique
-  capa        String    @unique
-  descricao   String
-  ano         Int
-  nota        Int?
-  linkYtb     String
-  linkGmp     String
-  userFav     UserJogos[]
-  genero      Generos[]
-}
-
-model UserJogos {
-  id          Int       @id @default(autoincrement())
-  usuarios    Usuarios? @relation(fields: [usuariosId], references: [id])
-  jogos       Jogo?     @relation(fields: [jogosId], references: [id])
-  usuariosId  Int?
-  jogosId     Int?
-}
-
-model Generos {
-  id          Int       @id @default(autoincrement())
-  nome        String    @unique
-  jogo        Jogo      @relation(fields: [jogoId], references: [id])
-  jogoId      Int
 }

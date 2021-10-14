@@ -11,7 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateUsuarioDto = void 0;
 const class_validator_1 = require("class-validator");
-class CreateUsuarioDto {
+const perfil_entities_1 = require("../../Perfis/entities/perfil.entities");
+const usuario_entity_1 = require("../entities/usuario.entity");
+class CreateUsuarioDto extends usuario_entity_1.Usuarios {
 }
 __decorate([
     (0, class_validator_1.IsString)(),
@@ -38,5 +40,9 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", Number)
 ], CreateUsuarioDto.prototype, "CPF", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Array)
+], CreateUsuarioDto.prototype, "perfis", void 0);
 exports.CreateUsuarioDto = CreateUsuarioDto;
 //# sourceMappingURL=create-usuario.dto.js.map
