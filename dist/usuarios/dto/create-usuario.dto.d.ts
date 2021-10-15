@@ -1,4 +1,4 @@
-import { Perfil } from "src/Perfis/entities/perfil.entities";
+import { CreatePerfilDto } from "src/Perfis/dto/create-perfil.dto";
 import { Usuarios } from "../entities/usuario.entity";
 export declare class CreateUsuarioDto extends Usuarios {
     nome: string;
@@ -6,5 +6,5 @@ export declare class CreateUsuarioDto extends Usuarios {
     email: string;
     senha: string;
     CPF: number;
-    perfis: Perfil[];
+    perfis: CreatePerfilDto[];
 }

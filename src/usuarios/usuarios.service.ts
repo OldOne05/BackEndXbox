@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { Prisma } from '.prisma/client';
 
 @Injectable()
 export class UsuariosService {
@@ -10,13 +11,20 @@ export class UsuariosService {
   private readonly _include = {
     perfis: {
       select: {
-        id: true,
+        id: false,
         titulo: true,
         imagem: true,
       }
     }
   }
-  create(data: CreateUsuarioDto) {
+  create(dto: CreateUsuarioDto) {
+    const data: Prisma.UsuariosCreateInput = {
+      ...dto,
+      perfis: {
+        create: dto.perfis,
+      },
+    };
+
     return this.prisma.usuarios.create({
       data,
       include:this._include

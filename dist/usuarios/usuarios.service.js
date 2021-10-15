@@ -18,14 +18,17 @@ let UsuariosService = class UsuariosService {
         this._include = {
             perfis: {
                 select: {
-                    id: true,
+                    id: false,
                     titulo: true,
                     imagem: true,
                 }
             }
         };
     }
-    create(data) {
+    create(dto) {
+        const data = Object.assign(Object.assign({}, dto), { perfis: {
+                create: dto.perfis,
+            } });
         return this.prisma.usuarios.create({
             data,
             include: this._include
