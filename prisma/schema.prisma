@@ -13,10 +13,10 @@ generator client {
 model Usuarios {
   id          Int       @id @default(autoincrement())
   nome        String    @unique
-  sobrenome   String?
-  email      String
-  senha       String
-  CPF         Int
+  sobrenome   String?   
+  email       String    @unique
+  senha       String    @unique
+  CPF         Int       @unique
   perfis      Perfis[]
 }
 
@@ -26,4 +26,24 @@ model Perfis {
   imagem      String
   user        Usuarios  @relation(fields: [userId], references: [id])
   userId      Int
+  jogosFav    Jogo[]
+}
+
+model Jogo {
+  id          Int       @id @default(autoincrement())
+  titulo      String    @unique
+  capa        String
+  descricao   String
+  ano         Int
+  nota        Int?
+  trailer     String?
+  gmp         String?
+  generos     Genero[]
+  perfis      Perfis[]
+}
+
+model Genero {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  jogos       Jogo[]
 }

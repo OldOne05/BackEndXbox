@@ -11,7 +11,7 @@ export class UsuariosService {
   private readonly _include = {
     perfis: {
       select: {
-        id: false,
+        id: true,
         titulo: true,
         imagem: true,
       }
@@ -46,7 +46,7 @@ export class UsuariosService {
 
   update(id: number, data: UpdateUsuarioDto) {
     return this.prisma.usuarios.update({
-      where: {id},
+      where: { id },
       data,
       include: this._include
     });
@@ -54,7 +54,7 @@ export class UsuariosService {
 
   remove(id: number) {
     return this.prisma.usuarios.delete({
-      where: {id}
+      where: { id }
     });
   }
 }
