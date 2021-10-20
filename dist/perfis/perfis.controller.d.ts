@@ -1,12 +1,12 @@
 import { PerfisService } from './perfis.service';
-import { CreatePerfiDto } from './dto/create-perfi.dto';
-import { UpdatePerfiDto } from './dto/update-perfi.dto';
+import { CreatePerfilDto } from './dto/create-perfil.dto';
+import { UpdatePerfilDto } from './dto/update-perfil.dto';
 export declare class PerfisController {
     private readonly perfisService;
     constructor(perfisService: PerfisService);
-    create(createPerfiDto: CreatePerfiDto): string;
-    findAll(): string;
-    findOne(id: string): string;
-    update(id: string, updatePerfiDto: UpdatePerfiDto): string;
-    remove(id: string): string;
+    create(createPerfilDto: CreatePerfilDto): import(".prisma/client").Prisma.Prisma__PerfisClient<import(".prisma/client").Perfis>;
+    findAll(): import(".prisma/client").PrismaPromise<import(".prisma/client").Perfis[]>;
+    findOne(id: number): import(".prisma/client").Prisma.Prisma__PerfisClient<import(".prisma/client").Perfis>;
+    update(id: number, updatePerfilDto: UpdatePerfilDto): import(".prisma/client").Prisma.Prisma__PerfisClient<import(".prisma/client").Perfis>;
+    remove(id: number): import(".prisma/client").Prisma.Prisma__PerfisClient<import(".prisma/client").Perfis>;
 }

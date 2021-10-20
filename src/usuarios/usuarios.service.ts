@@ -3,6 +3,7 @@ import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Prisma } from '.prisma/client';
+import { UpdatePerfilDto } from 'src/Perfis/dto/update-perfil.dto';
 
 @Injectable()
 export class UsuariosService {
@@ -44,7 +45,22 @@ export class UsuariosService {
     });
   }
 
-  update(id: number, data: UpdateUsuarioDto) {
+  update(id: number, dto: UpdateUsuarioDto) {
+    const data: Prisma.UsuariosUpdateInput = {
+      ...dto,
+      perfis: {
+        upsert: dto.perfis.map(UpdatePerfilDto => {
+          return {
+            where: { id: UpdatePerfilDto.id },
+            update: { titulo: UpdatePerfilDto.titulo, 
+              imagem: UpdatePerfilDto.imagem },
+            create: { titulo: UpdatePerfilDto.titulo,
+              imagem: UpdatePerfilDto.imagem }
+          };
+        })
+      }
+    };
+
     return this.prisma.usuarios.update({
       where: { id },
       data,

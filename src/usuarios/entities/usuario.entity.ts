@@ -1,4 +1,4 @@
-import { Perfil } from "src/Perfis/entities/perfil.entities";
+import { Perfil } from "src/Perfis/entities/perfil.entity";
 
 export class Usuarios {
     id?: number;

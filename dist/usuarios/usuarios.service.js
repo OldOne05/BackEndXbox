@@ -12,13 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsuariosService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
+const update_perfil_dto_1 = require("../Perfis/dto/update-perfil.dto");
 let UsuariosService = class UsuariosService {
     constructor(prisma) {
         this.prisma = prisma;
         this._include = {
             perfis: {
                 select: {
-                    id: false,
+                    id: true,
                     titulo: true,
                     imagem: true,
                 }
@@ -45,7 +46,18 @@ let UsuariosService = class UsuariosService {
             include: this._include
         });
     }
-    update(id, data) {
+    update(id, dto) {
+        const data = Object.assign(Object.assign({}, dto), { perfis: {
+                upsert: dto.perfis.map(UpdatePerfilDto => {
+                    return {
+                        where: { id: UpdatePerfilDto.id },
+                        update: { titulo: UpdatePerfilDto.titulo,
+                            imagem: UpdatePerfilDto.imagem },
+                        create: { titulo: UpdatePerfilDto.titulo,
+                            imagem: UpdatePerfilDto.imagem }
+                    };
+                })
+            } });
         return this.prisma.usuarios.update({
             where: { id },
             data,

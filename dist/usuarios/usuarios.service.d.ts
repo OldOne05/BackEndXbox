@@ -8,30 +8,30 @@ export declare class UsuariosService {
     private readonly _include;
     create(dto: CreateUsuarioDto): Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios & {
         perfis: {
+            id: number;
             titulo: string;
             imagem: string;
-            id: number;
         }[];
     }>;
     findAll(): import(".prisma/client").PrismaPromise<(import(".prisma/client").Usuarios & {
         perfis: {
+            id: number;
             titulo: string;
             imagem: string;
-            id: number;
         }[];
     })[]>;
     findOne(id: number): Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios & {
         perfis: {
+            id: number;
             titulo: string;
             imagem: string;
-            id: number;
         }[];
     }>;
-    update(id: number, data: UpdateUsuarioDto): Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios & {
+    update(id: number, dto: UpdateUsuarioDto): Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios & {
         perfis: {
+            id: number;
             titulo: string;
             imagem: string;
-            id: number;
         }[];
     }>;
     remove(id: number): Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios>;

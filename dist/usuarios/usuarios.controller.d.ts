@@ -6,31 +6,31 @@ export declare class UsuariosController {
     constructor(usuariosService: UsuariosService);
     create(createUsuarioDto: CreateUsuarioDto): import(".prisma/client").Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios & {
         perfis: {
+            id: number;
             titulo: string;
             imagem: string;
-            id: number;
         }[];
     }>;
     findAll(): import(".prisma/client").PrismaPromise<(import(".prisma/client").Usuarios & {
         perfis: {
+            id: number;
             titulo: string;
             imagem: string;
-            id: number;
         }[];
     })[]>;
-    findOne(id: string): import(".prisma/client").Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios & {
+    findOne(id: number): import(".prisma/client").Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios & {
         perfis: {
+            id: number;
             titulo: string;
             imagem: string;
-            id: number;
         }[];
     }>;
-    update(id: string, updateUsuarioDto: UpdateUsuarioDto): import(".prisma/client").Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios & {
+    update(id: number, updateUsuarioDto: UpdateUsuarioDto): import(".prisma/client").Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios & {
         perfis: {
+            id: number;
             titulo: string;
             imagem: string;
-            id: number;
         }[];
     }>;
-    remove(id: string): import(".prisma/client").Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios>;
+    remove(id: number): import(".prisma/client").Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios>;
 }

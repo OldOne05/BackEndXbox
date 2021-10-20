@@ -21,10 +21,8 @@ export class CreateJogoDto extends Jogo {
     @IsInt()
     nota?: number;
 
-    @IsString()
     trailer?: string;
 
-    @IsString()
     gmp?: string;
 
     @IsInt({ each: true })

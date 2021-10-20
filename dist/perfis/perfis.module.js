@@ -10,12 +10,13 @@ exports.PerfisModule = void 0;
 const common_1 = require("@nestjs/common");
 const perfis_service_1 = require("./perfis.service");
 const perfis_controller_1 = require("./perfis.controller");
+const prisma_service_1 = require("../prisma/prisma.service");
 let PerfisModule = class PerfisModule {
 };
 PerfisModule = __decorate([
     (0, common_1.Module)({
         controllers: [perfis_controller_1.PerfisController],
-        providers: [perfis_service_1.PerfisService]
+        providers: [perfis_service_1.PerfisService, prisma_service_1.PrismaService]
     })
 ], PerfisModule);
 exports.PerfisModule = PerfisModule;

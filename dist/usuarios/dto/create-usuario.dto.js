@@ -13,7 +13,7 @@ exports.CreateUsuarioDto = void 0;
 const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 const create_perfil_dto_1 = require("../../Perfis/dto/create-perfil.dto");
-const perfil_entities_1 = require("../../Perfis/entities/perfil.entities");
+const perfil_entity_1 = require("../../Perfis/entities/perfil.entity");
 const usuario_entity_1 = require("../entities/usuario.entity");
 class CreateUsuarioDto extends usuario_entity_1.Usuarios {
 }

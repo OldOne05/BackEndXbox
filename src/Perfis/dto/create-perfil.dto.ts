@@ -1,5 +1,5 @@
-import { isNotEmpty, IsNotEmpty, isString, IsString } from "class-validator";
-import { Perfil } from "../entities/perfil.entities";
+import { IsNotEmpty, IsString } from "class-validator";
+import { Perfil } from "../entities/perfil.entity";
 
 export class CreatePerfilDto extends Perfil {
     @IsString()

@@ -1,13 +1,14 @@
-import { Prisma } from "@prisma/client";
-export declare class Jogo implements Prisma.JogoUncheckedCreateInput {
+import { Genero } from "src/genero/entities/genero.entity";
+import { Perfil } from "src/Perfis/entities/perfil.entity";
+export declare class Jogo {
     id?: number;
     titulo: string;
     capa: string;
-    descricao: string;
+    descricao?: string;
     ano: number;
-    linkYtb: string;
-    linkGmp: string;
     nota?: number;
-    userFav: Prisma.UserJogosCreateNestedManyWithoutJogosInput;
-    genero: Prisma.GenerosCreateNestedManyWithoutJogoInput;
+    trailer?: string;
+    gmp?: string;
+    generos: Genero[];
+    perfis: Perfil[];
 }

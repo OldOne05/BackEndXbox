@@ -18,18 +18,18 @@ export class GeneroController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.generoService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.generoService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateGeneroDto: UpdateGeneroDto) {
-    return this.generoService.update(+id, updateGeneroDto);
+  update(@Param('id') id: number, @Body() updateGeneroDto: UpdateGeneroDto) {
+    return this.generoService.update(id, updateGeneroDto);
   }
 
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  remove(@Param('id') id: string) {
-    return this.generoService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.generoService.remove(id);
   }
 }
